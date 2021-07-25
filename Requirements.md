@@ -1,10 +1,10 @@
 This simple application will just be a web-based interface to update a database on horses. I am not concerned with the look at all, just functionality. This is a basic CRUD application. The application should use Java, Spring Framework MVC and the MySQL database.
 These are the basic requirements:
 Must be able to list all of the horses in the database. The list should include the horse name, the age of the horse (calculated from foal year*), gender
-C - You should have the ability to add a horse to the list.
-R - From that list you should be able select a to view all of the details of the horse.
-U - You should be able to select a horse to edit from the list.
-D - You should be able to delete horses from the list.
+[x] C - You should have the ability to add a horse to the list.
+[x] R - From that list you should be able select a to view all of the details of the horse.
+[x] U - You should be able to select a horse to edit from the list.
+[x] D - You should be able to delete horses from the list.
 
 Database table:
 
