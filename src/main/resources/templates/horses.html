@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Horses</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Horses</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th></th>
+        </tr>
+        <tr th:each="horse : ${horses}">
+            <td th:text="${horse.name}"></td>
+            <td th:text="${horse.foalYear}"></td>
+            <td th:text="${horse.gender}"></td>
+            <td>
+                <a th:href="@{/horse/{id}(id=${horse.id})}">edit</a>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <h1>Add a Horse</h1>
+    <form th:action="@{/horses}" method="post" enctype="multipart/form-data">
+        <div>
+            Name: <input name="name" />
+        </div>
+        <div>
+            Birth Date: <input name="foalYear" />
+        </div>
+        <div>
+            Gender: <input name="gender" />
+        </div>
+        <div>
+            Equibase Link: <input name="equibaselink" />
+        </div>
+        <div>
+            Owner: <input name="owner" />
+        </div>
+        <div>
+            Trainer: <input name="trainer" />
+        </div>
+        <div>
+            Jockey: <input name="jockey" />
+        </div>
+        <div>
+            <input type="submit" value="Submit" name="button" />
+        </div>
+    </form>
+</body>
+
+</html>

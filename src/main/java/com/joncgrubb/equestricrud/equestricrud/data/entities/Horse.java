@@ -17,9 +17,9 @@ import com.joncgrubb.equestricrud.equestricrud.data.common.Gender;
 @Table(name = "horse")
 public class Horse {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Column(name = "name")
     private String name;
 
@@ -46,7 +46,8 @@ public class Horse {
         super();
     }
 
-    public Horse(String name, Gender gender, LocalDate foalYear, String equibaselink, String owner, String trainer, String jockey) {
+    public Horse(String name, Gender gender, LocalDate foalYear, String equibaselink, String owner, String trainer,
+            String jockey) {
         super();
         this.name = name;
         this.gender = gender;
@@ -65,7 +66,7 @@ public class Horse {
         this.id = id;
     }
 
-    public String getName(String name) {
+    public String getName() {
         return name;
     }
 
@@ -73,7 +74,7 @@ public class Horse {
         this.name = name;
     }
 
-    public Gender getGender(Gender gender) {
+    public Gender getGender() {
         return gender;
     }
 
@@ -81,7 +82,7 @@ public class Horse {
         this.gender = gender;
     }
 
-    public LocalDate getFoalYear(LocalDate foalYear) {
+    public LocalDate getFoalYear() {
         return foalYear;
     }
 
@@ -89,15 +90,15 @@ public class Horse {
         this.foalYear = foalYear;
     }
 
-    public String getEquibaselink(String equibaselink) {
-        return equibaselink;
+    public String getEquibaselink() {
+        return equibaseLink;
     }
 
     public void setEquibaselink(String equibaselink) {
         this.equibaseLink = equibaselink;
     }
 
-    public String getOwner(String owner) {
+    public String getOwner() {
         return owner;
     }
 
@@ -105,7 +106,7 @@ public class Horse {
         this.owner = owner;
     }
 
-    public String getTrainer(String trainer) {
+    public String getTrainer() {
         return trainer;
     }
 
@@ -113,7 +114,7 @@ public class Horse {
         this.trainer = trainer;
     }
 
-    public String getJockey(String jockey) {
+    public String getJockey() {
         return jockey;
     }
 
