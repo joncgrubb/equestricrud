@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Horse</title>
+    <title>Edit Horse</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-    <h1>Horse</h1>
-    <form th:action="@{/horse/{id}}" method="PATCH" enctype="multipart/form-data">
+    <h1>Edit Horse</h1>
+    <form th:action="@{/horse/{id}(id=${horse.id})}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:field="${horse.id}">
         Name: <input type="text" th:field="${horse.name}" /><br />
         Age: <input type="text" th:field="${horse.foalYear}" /><br />
         Gender: <input type="text" th:field="${horse.gender}" /><br />

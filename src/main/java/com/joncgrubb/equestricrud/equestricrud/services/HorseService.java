@@ -65,17 +65,18 @@ public class HorseService {
 
 			model.addAttribute("horse", newHorse);
 
-			return "redirect:/horse/" + newHorse.getId();
+			return "redirect:/horses";
 		} catch (Exception e) {
 			throw e;
 		}
 	}
 
-	@RequestMapping(value = "/horse/{id}", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/horse/{id}", method = RequestMethod.POST)
 	public String horseEdit(@RequestParam long id, @RequestParam String name, @RequestParam Gender gender,
 			@RequestParam LocalDate foalYear, @RequestParam String equibaselink, @RequestParam String owner,
 			@RequestParam String trainer, @RequestParam String jockey, Model model) {
 		try {
+			System.out.println("************ Horse ID: " + id);
 			Horse horse = horseRepository.findById(id).get();
 			horse.setName(name);
 			horse.setGender(gender);
