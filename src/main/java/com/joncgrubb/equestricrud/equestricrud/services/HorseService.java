@@ -2,9 +2,12 @@ package com.joncgrubb.equestricrud.equestricrud.services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.joncgrubb.equestricrud.equestricrud.data.common.Gender;
 import com.joncgrubb.equestricrud.equestricrud.data.entities.Horse;
+import com.joncgrubb.equestricrud.equestricrud.data.interfaces.HorseInterface;
 import com.joncgrubb.equestricrud.equestricrud.data.repositories.HorseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,18 @@ public class HorseService {
 			// model.addAttribute("horse", horseRepository.findById(id));
 			horseRepository.findById(id).ifPresent(o -> model.addAttribute("horse", o));
 
+			Horse horse = new Horse();
+			HorseInterface horseInterface = new HorseInterface();
+
+			horse = horseRepository.findById(id).get();
+			horseInterface.setId(horse.getId());
+			horseInterface.setName(horse.getName());
+			
+			LocalDate now = LocalDate.now();
+			long yearsToAdd = now.plusYears(yearsToAdd);
+			LocalDate ageInYears = now.plus();
+			System.out.println("********* AGE IN YEARS: " + ageInYears.toString());
+			
 			return "horse";
 		} catch (Exception e) {
 			throw e;

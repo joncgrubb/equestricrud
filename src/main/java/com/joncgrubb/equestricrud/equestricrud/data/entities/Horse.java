@@ -31,7 +31,7 @@ public class Horse {
     private LocalDate foalYear;
 
     @Column(name = "equibaselink")
-    private String equibaseLink;
+    private String equibaselink;
 
     @Column(name = "owner")
     private String owner;
@@ -52,7 +52,7 @@ public class Horse {
         this.name = name;
         this.gender = gender;
         this.foalYear = foalYear;
-        this.equibaseLink = equibaselink;
+        this.equibaselink = equibaselink;
         this.owner = owner;
         this.trainer = trainer;
         this.jockey = jockey;
@@ -91,11 +91,11 @@ public class Horse {
     }
 
     public String getEquibaselink() {
-        return equibaseLink;
+        return equibaselink;
     }
 
     public void setEquibaselink(String equibaselink) {
-        this.equibaseLink = equibaselink;
+        this.equibaselink = equibaselink;
     }
 
     public String getOwner() {
