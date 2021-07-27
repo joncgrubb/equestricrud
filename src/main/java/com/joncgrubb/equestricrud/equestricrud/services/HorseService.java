@@ -149,12 +149,12 @@ public class HorseService {
 		}
 	}
 
-	@RequestMapping(value = "/horse/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/horse/delete/{id}", method = RequestMethod.POST)
 	public String horseDelete(@RequestParam long id, Model model) {
 		try {
 			horseRepository.deleteById(id);
 
-			return "redirect:/horse";
+			return "redirect:/horses";
 		} catch (Exception e) {
 			throw e;
 		}
