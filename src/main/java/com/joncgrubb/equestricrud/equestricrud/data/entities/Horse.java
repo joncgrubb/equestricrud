@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.joncgrubb.equestricrud.equestricrud.data.common.Gender;
 
@@ -18,25 +19,32 @@ public class Horse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     @Column(name = "name")
     private String name;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private Gender gender;
 
+    @NotNull
     @Column(name = "foalyear")
     private int foalYear;
 
+    @NotNull
     @Column(name = "equibaselink")
     private String equibaselink;
 
+    @NotNull
     @Column(name = "owner")
     private String owner;
 
+    @NotNull
     @Column(name = "trainer")
     private String trainer;
 
+    @NotNull
     @Column(name = "jockey")
     private String jockey;
 

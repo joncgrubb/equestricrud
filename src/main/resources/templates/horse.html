@@ -1,33 +1,8 @@
-<!-- <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Equestricrud - Edit Horse</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-
-<body>
-    <h1>Edit Horse</h1>
-    <form th:action="@{/horse/{id}(id=${horse.id})}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" th:field="${horse.id}">
-        Name: <input type="text" th:field="${horse.name}" /><br />
-        Foal Year: <input type="text" th:field="${horse.age}" /><br />
-        Gender: <input type="text" th:field="${horse.genderName}" /><br />
-        Equibase Link: <input type="text" th:field="${horse.equibaselink}" /><br />
-        Owner: <input type="text" th:field="${horse.owner}" /><br />
-        Trainer: <input type="text" th:field="${horse.trainer}" /><br />
-        Jockey: <input type="text" th:field="${horse.jockey}" /><br />
-        <input type="submit" value="Submit" />
-    </form>
-</body>
-
-</html> -->
-
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Developer</title>
+    <title>Equestricrud - Edit Horse</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
@@ -35,7 +10,9 @@
 
 <body>
     <div class="container">
-        <div class="d-flex"><h1 class="text-center">Equestricrud</h1></div>
+        <div class="d-flex">
+            <h1 class="text-center">Equestricrud</h1>
+        </div>
         <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
@@ -51,42 +28,53 @@
                                 <label class="col-lg-2 control-label">Name</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.name}" />
+                                    <span th:if="${#fields.hasErrors('horse.name')}" th:errors="*{horse.name}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Age</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.age}" />
+                                    <span th:if="${#fields.hasErrors('horse.age')}" th:errors="*{horse.age}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Gender</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.genderName}" />
+                                    <span th:if="${#fields.hasErrors('horse.genderName')}"
+                                        th:errors="*{horse.genderName"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Equibase Link</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" th:field="${horse.equibaselink}" />
+                                    <span th:if="${#fields.hasErrors('horse.equibaselink')}"
+                                        th:errors="*{horse.equibaselink}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Owner</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.owner}" />
+                                    <span th:if="${#fields.hasErrors('horse.owner')}" th:errors="*{horse.owner}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Trainer</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.trainer}" />
+                                    <span th:if="${#fields.hasErrors('horse.trainer')}"
+                                        th:errors="*{horse.trainer}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Jockey</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" th:field="${horse.jockey}" />
+                                    <span th:if="${#fields.hasErrors('horse.jockey')}"
+                                        th:errors="*{horse.jockey}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
