@@ -28,53 +28,54 @@
                                 <label class="col-lg-2 control-label">Name</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.name}" />
-                                    <span th:if="${#fields.hasErrors('horse.name')}" th:errors="*{horse.name}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Foal Year</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.age}" />
-                                    <span th:if="${#fields.hasErrors('horse.age')}" th:errors="*{horse.age}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Gender</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" th:field="${horse.genderName}" />
-                                    <span th:if="${#fields.hasErrors('horse.genderName')}"
-                                        th:errors="*{horse.genderName"></span>
+                                    <p th:text="${horse.genderName}"></p>
+                                    <div th:if="${horse.genderName == 'f'}">
+                                        <select class="form-control" name="genderName">
+                                            <option value="f" selected>Female</option>
+                                            <option value="m">Male</option>
+                                        </select>
+                                    </div>
+                                    <div th:if="${horse.genderName == 'm'}">
+                                        <select class="form-control" name="genderName">
+                                            <option value="f" selected>Male</option>
+                                            <option value="m">Female</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Equibase Link</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" th:field="${horse.equibaselink}" />
-                                    <span th:if="${#fields.hasErrors('horse.equibaselink')}"
-                                        th:errors="*{horse.equibaselink}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Owner</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.owner}" />
-                                    <span th:if="${#fields.hasErrors('horse.owner')}" th:errors="*{horse.owner}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Trainer</label>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" th:field="${horse.trainer}" />
-                                    <span th:if="${#fields.hasErrors('horse.trainer')}"
-                                        th:errors="*{horse.trainer}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Jockey</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" th:field="${horse.jockey}" />
-                                    <span th:if="${#fields.hasErrors('horse.jockey')}"
-                                        th:errors="*{horse.jockey}"></span>
                                 </div>
                             </div>
                             <div class="form-group">
