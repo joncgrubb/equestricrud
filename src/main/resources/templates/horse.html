@@ -27,19 +27,19 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Name</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" th:field="${horse.name}" />
+                                    <input type="text" class="form-control" maxlength="45" th:field="${horse.name}" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Foal Year</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" th:field="${horse.age}" />
+                                    <input type="number" class="form-control" pattern="^[0-9]{4}$" title="Please enter a 4 digit year."
+                                        th:field="${horse.age}" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Gender</label>
                                 <div class="col-lg-6">
-                                    <p th:text="${horse.genderName}"></p>
                                     <div th:if="${horse.genderName == 'f'}">
                                         <select class="form-control" name="genderName">
                                             <option value="f" selected>Female</option>
@@ -57,25 +57,27 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Equibase Link</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" th:field="${horse.equibaselink}" />
+                                    <input type="text" class="form-control" maxlength="255"
+                                        th:field="${horse.equibaselink}" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Owner</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" th:field="${horse.owner}" />
+                                    <input type="text" class="form-control" maxlength="45" th:field="${horse.owner}" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Trainer</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" th:field="${horse.trainer}" />
+                                    <input type="text" class="form-control" maxlength="45"
+                                        th:field="${horse.trainer}" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Jockey</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" th:field="${horse.jockey}" />
+                                    <input type="text" class="form-control" maxlength="45" th:field="${horse.jockey}" required />
                                 </div>
                             </div>
                             <div class="form-group">
