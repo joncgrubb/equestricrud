@@ -1,7 +1,5 @@
 package com.joncgrubb.equestricrud.equestricrud.data.entities;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -28,7 +26,7 @@ public class Horse {
     private Gender gender;
 
     @Column(name = "foalyear")
-    private LocalDate foalYear;
+    private int foalYear;
 
     @Column(name = "equibaselink")
     private String equibaselink;
@@ -46,7 +44,7 @@ public class Horse {
         super();
     }
 
-    public Horse(String name, Gender gender, LocalDate foalYear, String equibaselink, String owner, String trainer,
+    public Horse(String name, Gender gender, int foalYear, String equibaselink, String owner, String trainer,
             String jockey) {
         super();
         this.name = name;
@@ -82,11 +80,11 @@ public class Horse {
         this.gender = gender;
     }
 
-    public LocalDate getFoalYear() {
+    public int getFoalYear() {
         return foalYear;
     }
 
-    public void setFoalYear(LocalDate foalYear) {
+    public void setFoalYear(int foalYear) {
         this.foalYear = foalYear;
     }
 

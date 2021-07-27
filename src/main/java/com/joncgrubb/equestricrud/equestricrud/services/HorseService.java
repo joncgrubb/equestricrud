@@ -1,9 +1,13 @@
 package com.joncgrubb.equestricrud.equestricrud.services;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 import com.joncgrubb.equestricrud.equestricrud.data.common.Gender;
 import com.joncgrubb.equestricrud.equestricrud.data.entities.Horse;
@@ -27,21 +31,29 @@ public class HorseService {
 	@RequestMapping("/horse/{id}")
 	public String horse(@PathVariable Long id, Model model) {
 		try {
-			// model.addAttribute("horse", horseRepository.findById(id));
-			horseRepository.findById(id).ifPresent(o -> model.addAttribute("horse", o));
+			System.out.println("*** Entering horse method ***");
 
-			Horse horse = new Horse();
+			// *** Start New Code ***
+			System.out.println("*** Finding new horse object ***");
+			Horse horse = horseRepository.findById(id).orElse(null);
 			HorseInterface horseInterface = new HorseInterface();
+			System.out.println("*** New horse object query completed ***");
+			if (horse != null) {
+				System.out.println("*** Horse not null ***");
+				horseInterface.setId(horse.getId());
+				horseInterface.setName(horse.getName());
 
-			horse = horseRepository.findById(id).get();
-			horseInterface.setId(horse.getId());
-			horseInterface.setName(horse.getName());
-			
-			LocalDate now = LocalDate.now();
-			long yearsToAdd = now.plusYears(yearsToAdd);
-			LocalDate ageInYears = now.plus();
-			System.out.println("********* AGE IN YEARS: " + ageInYears.toString());
-			
+				// TODO: Do math for gender strings
+				LocalDate now = LocalDate.now();
+				int currentYear = now.getYear();
+				LocalDate foalDate = LocalDate.of(horse.getFoalYear(), Month.JANUARY, 1);
+				LocalDate currentDate = LocalDate.of(currentYear, Month.JANUARY, 1);
+ 
+				String age = String.valueOf(Period.between(foalDate, currentDate).getYears());
+				horseInterface.setAge(age);
+				horseInterface.setGenderName("Filly");
+			}
+			model.addAttribute("horse", horseInterface);
 			return "horse";
 		} catch (Exception e) {
 			throw e;
@@ -64,8 +76,7 @@ public class HorseService {
 			@RequestParam String equibaselink, @RequestParam String owner, @RequestParam String trainer,
 			@RequestParam String jockey, Model model) {
 		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			LocalDate localDate = LocalDate.parse(foalYear, formatter);
+			// TODO change foalYear to Integer from LocalDate
 
 			Horse newHorse = new Horse();
 			newHorse.setName(name);
@@ -91,6 +102,8 @@ public class HorseService {
 			@RequestParam LocalDate foalYear, @RequestParam String equibaselink, @RequestParam String owner,
 			@RequestParam String trainer, @RequestParam String jockey, Model model) {
 		try {
+			// TODO Change foalYear from LocalDate to Integer
+
 			System.out.println("************ Horse ID: " + id);
 			Horse horse = horseRepository.findById(id).get();
 			horse.setName(name);

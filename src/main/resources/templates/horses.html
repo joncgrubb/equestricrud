@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Horses</title>
+    <title>Equestricrud - Horses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
@@ -17,7 +17,7 @@
         </tr>
         <tr th:each="horse : ${horses}">
             <td th:text="${horse.name}"></td>
-            <td th:text="${horse.foalYear}"></td>
+            <td th:text="${horse.foalYear} + years old"></td>
             <td th:text="${horse.gender}"></td>
             <td>
                 <a th:href="@{/horse/{id}(id=${horse.id})}">edit</a>
@@ -31,7 +31,7 @@
             Name: <input name="name" />
         </div>
         <div>
-            Birth Date: <input name="foalYear" />
+            Birth Year: <input name="foalYear" />
         </div>
         <div>
             Gender: <input name="gender" />
