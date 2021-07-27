@@ -22,15 +22,13 @@ jockey
 
 **  Gender is displayed based on the gender in the database and the age. If a female is 4 years old it's a Filly, 4 and over is a Mare. A male is a Colt under 4 and a Horse 4 years and up:
 
-    *** This section requires clarification from client ***
     Female:
-        4 years old = "Filly" <- Client stated exactly 4 years is a Filly, not under 4 like the Colt for males. This directly interferes with a Mare being "4 and over"
+        < 4 years old = "Filly"
         4 and over years old = "Mare"
 
     Male:
         < 4 years old = "Colt"
         4 and over "Horse"
-    *** End section ***
 
 
 I am not sure what IDE you use. We used to use Netbeans but now we use IntelliJ. I would prefer you used one of these to make the project, but it is not necessary at all that you use an IDE. We discussed that you have an application server that you can use so I will expect 2 things in the end. 
