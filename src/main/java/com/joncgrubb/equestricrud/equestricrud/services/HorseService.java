@@ -28,12 +28,10 @@ public class HorseService {
 	@RequestMapping("/horse/{id}")
 	public String horse(@PathVariable Long id, Model model) {
 		try {
-			System.out.println("*** Finding new horse object ***");
 			Horse horse = horseRepository.findById(id).orElse(null);
 			HorseInterface horseInterface = new HorseInterface();
-			System.out.println("*** New horse object query completed ***");
+
 			if (horse != null) {
-				System.out.println("*** Horse not null ***");
 				horseInterface.setId(horse.getId());
 				horseInterface.setName(horse.getName());
 				horseInterface.setEquibaselink(horse.getEquibaselink());
@@ -108,8 +106,6 @@ public class HorseService {
 			@RequestParam String equibaselink, @RequestParam String owner, @RequestParam String trainer,
 			@RequestParam String jockey, Model model) {
 		try {
-			// TODO change foalYear to Integer from LocalDate
-
 			Horse newHorse = new Horse();
 			newHorse.setName(name);
 			newHorse.setGender(gender);
@@ -134,9 +130,6 @@ public class HorseService {
 			@RequestParam int age, @RequestParam String equibaselink, @RequestParam String owner,
 			@RequestParam String trainer, @RequestParam String jockey, Model model) {
 		try {
-			// TODO Change foalYear from LocalDate to Integer
-
-			System.out.println("************ Horse ID: " + id);
 			Horse horse = horseRepository.findById(id).get();
 			horse.setName(name);
 			horse.setGender(genderName);

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!-- <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -19,6 +19,93 @@
         Jockey: <input type="text" th:field="${horse.jockey}" /><br />
         <input type="submit" value="Submit" />
     </form>
+</body>
+
+</html> -->
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Developer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex"><h1 class="text-center">Equestricrud</h1></div>
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>Edit Horse</h1>
+
+                    <form class="form-horizontal" th:action="@{/horse/{id}(id=${horse.id})}" method="post"
+                        enctype="multipart/form-data">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="hidden" th:field="${horse.id}">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" th:field="${horse.name}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Age</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" th:field="${horse.age}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Gender</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" th:field="${horse.genderName}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Equibase Link</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" th:field="${horse.equibaselink}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Owner</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" th:field="${horse.owner}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Trainer</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" th:field="${horse.trainer}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Jockey</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" th:field="${horse.jockey}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-6 col-lg-offset-2">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <a class="btn btn-default" href="/horses" role="button">Cancel</a>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
