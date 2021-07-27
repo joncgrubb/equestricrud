@@ -20,7 +20,18 @@ jockey
 
 *  Every horse is considered a weanling from the moment of birth. A horse becomes a year old, or Yearling, January 1st of the very next year after birth. Effectively every Thoroughbred horse's birthday as far as the industry is concerned January 1st. A horse born in 2019 is considered a 1 year old on Jan 1st 2020. So you use the foal year and the current year to calculate the age in years. A horse born in 2017 (any time of that year) would be 4 years old now.
 
-**  Gender is displayed based on the gender in the database and the age. If a female is 4 years old it's a Filly, 4 and over is a Mare. A male is a Colt under 4 and a Horse 4 years and up.
+**  Gender is displayed based on the gender in the database and the age. If a female is 4 years old it's a Filly, 4 and over is a Mare. A male is a Colt under 4 and a Horse 4 years and up:
+
+    *** This section requires clarification from client ***
+    Female:
+        4 years old = "Filly" <- Client stated exactly 4 years is a Filly, not under 4 like the Colt for males. This directly interferes with a Mare being "4 and over"
+        4 and over years old = "Mare"
+
+    Male:
+        < 4 years old = "Colt"
+        4 and over "Horse"
+    *** End section ***
+
 
 I am not sure what IDE you use. We used to use Netbeans but now we use IntelliJ. I would prefer you used one of these to make the project, but it is not necessary at all that you use an IDE. We discussed that you have an application server that you can use so I will expect 2 things in the end. 
 1 - link to the functional application.

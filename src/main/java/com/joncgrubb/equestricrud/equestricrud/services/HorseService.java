@@ -43,14 +43,19 @@ public class HorseService {
 				horseInterface.setId(horse.getId());
 				horseInterface.setName(horse.getName());
 
-				// TODO: Do math for gender strings
+				// Calculate age of the horse based on currently held thoroughbred age
+				// conventions; Birth date will always be year of birth on January 1
 				LocalDate now = LocalDate.now();
 				int currentYear = now.getYear();
 				LocalDate foalDate = LocalDate.of(horse.getFoalYear(), Month.JANUARY, 1);
 				LocalDate currentDate = LocalDate.of(currentYear, Month.JANUARY, 1);
- 
-				String age = String.valueOf(Period.between(foalDate, currentDate).getYears());
-				horseInterface.setAge(age);
+				int age = Period.between(foalDate, currentDate).getYears();
+				String ageString = String.valueOf(age);
+
+				horseInterface.setAge(ageString);
+
+				// TODO: Do math for gender strings
+				
 				horseInterface.setGenderName("Filly");
 			}
 			model.addAttribute("horse", horseInterface);
