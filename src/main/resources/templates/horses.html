@@ -17,8 +17,8 @@
         </tr>
         <tr th:each="horse : ${horses}">
             <td th:text="${horse.name}"></td>
-            <td th:text="${horse.foalYear} + years old"></td>
-            <td th:text="${horse.gender}"></td>
+            <td th:text="${horse.age}"></td>
+            <td th:text="${horse.genderName}"></td>
             <td>
                 <a th:href="@{/horse/{id}(id=${horse.id})}">edit</a>
             </td>
