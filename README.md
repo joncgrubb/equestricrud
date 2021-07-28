@@ -16,7 +16,7 @@ A simple Spring Web MVC application with Thymeleaf template processing written i
 * Horse name
 * Horse age (calculated from foal year, see below)
 * Horse gender (calculated based on foal year, current year and actual gender, see below)
-- [x] Age : Effectively every Thoroughbred horse's birthday as far as the industry is concerned is January 1st. A horse born in 2019 is will be considered a 1 year old on Jan 1st 2020.
+- [x] Age : Effectively every Thoroughbred horse's birthday as far as the industry is concerned is January 1st. A horse born in 2019 will be considered a 1 year old on Jan 1st 2020.
 - [x] Gender :  
 * Female:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< 4 years old = "Filly"  
@@ -54,7 +54,7 @@ What is Heroku? Heroku is a platform as a service (PaaS) that enables developers
 * You need to download the Heroku CLI [here](https://devcenter.heroku.com/articles/heroku-cli). It is important to note here that if you already have Git Bash installed with an open terminal window, you will need to close that window and open a new one after installing Heroku CLI for Git to recognize the installation. If you do not, Heroku CLI will not be recognized. You can easily test if the CLI was installed properly by issuing the following command in Git Bash: `heroku --version`
 
 ### Creating the App
-You can now login to Heroku create your app within the web interface.
+You can now login to Heroku and create your app within the web interface.
 ![alt text](https://github.com/joncgrubb/equestricrud/blob/main/images/heroku_create_new_app.PNG?raw=true)
 
 Give your app a name. One drawback here is that app names are shared between all users, so you must select a name that is not in use.
@@ -69,7 +69,7 @@ Heroku natively supports PostgreSQL for all applications. Unfortunately that mea
 Submit the "order form" for the Ignite plan, which is free.
 ![alt text](https://github.com/joncgrubb/equestricrud/blob/main/images/heroku_cleardb_submit.PNG?raw=true)
 
-You can now see the addon has been added to your application. Now you should click the Settings tab in the navbar and click the Reveal Config Vars button, this is where your database URL, username, and password are stored. The URL will be the only item in the list, add the other two shown below and copy the username and password values from inside the URL, the username will be directly after the `mysql://` and will be separated from the password with a `:`
+You can now see the addon has been added to your application. Now you should click the Settings tab in the navbar and click the Reveal Config Vars button, this is where your database URL, username, and password are stored. The URL will be the only item in the list, add the other two shown below and copy/paste the username and password values from inside the URL, the username will be directly after the `mysql://` and will be separated from the password with a `:`
 ![alt text](https://github.com/joncgrubb/equestricrud/blob/main/images/heroku_config_vars.PNG?raw=true)
 
 You will need to update your application.properties file mentioned earlier if you have not yet done so or if you decided to use alternate variable names.
