@@ -12,10 +12,10 @@ A simple Spring Web MVC application with Thymeleaf template processing written i
 
 - [x] Project should be built using Java, Spring Web MVC Framework and a MySQL database.
 - [x] Project should be deployed to an application server.
-- [x] The horse list should show the following details:
-        * Horse name
-        * Horse age (calculated from foal year, see below)
-        * Horse gender (calculated based on foal year, current year and actual gender, see below)
+- [x] The horse list should show the following details:  
+* Horse name
+* Horse age (calculated from foal year, see below)
+* Horse gender (calculated based on foal year, current year and actual gender, see below)
 - [x] Age : Effectively every Thoroughbred horse's birthday as far as the industry is concerned is January 1st. A horse born in 2019 is will be considered a 1 year old on Jan 1st 2020.
 - [x] Gender :  
 * Female:  
