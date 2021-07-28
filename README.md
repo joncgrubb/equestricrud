@@ -17,13 +17,13 @@ A simple Spring Web MVC application with Thymeleaf template processing written i
         * Horse age (calculated from foal year, see below)
         * Horse gender (calculated based on foal year, current year and actual gender, see below)
 - [x] Age : Effectively every Thoroughbred horse's birthday as far as the industry is concerned is January 1st. A horse born in 2019 is will be considered a 1 year old on Jan 1st 2020.
-- [x] Gender :
-        * Female:
-            * < 4 years old = "Filly"
-            * 4+ years old = "Mare"
-        * Male:
-            * < 4 years old = "Colt"
-            * 4+ years old = "Horse"
+- [x] Gender :  
+* Female:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< 4 years old = "Filly"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4+ years old = "Mare"  
+* Male:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< 4 years old = "Colt"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4+ years old = "Horse"
 
 ## Java / Spring Web MVC Framework / MySQL Database
 For this application, I utilized the Java Development Kit 11 coupled with the [most recent version of Spring Boot](https://github.com/joncgrubb/equestricrud/blob/402adb9b509cab0a9d16966013b5b8ebcd27c0c6/pom.xml#L8). I have utilized Spring Boot for the sake of being able to quickly deploy a Spring-powered application out of the box, without having to write a lot of boilerplate code. It is important to note here that we *are* using Spring MVC within Spring Boot by [including the spring-web dependency](https://github.com/joncgrubb/equestricrud/blob/402adb9b509cab0a9d16966013b5b8ebcd27c0c6/pom.xml#L33). Viewing the [pom file](https://github.com/joncgrubb/equestricrud/blob/main/pom.xml) you can see all the dependencies used for this application, including the Java Persistence API (JPA) and MySQL Connector required to store data in a MySQL database.
