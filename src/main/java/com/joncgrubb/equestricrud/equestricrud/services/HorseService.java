@@ -56,42 +56,8 @@ public class HorseService {
 			List<Horse> horseList = horseRepository.findAll();
 
 			for (Horse horse : horseList) {
-				HorseInterface horseInterface = new HorseInterface();
-				if (horse != null) {
-					horseInterface.setId(horse.getId());
-					horseInterface.setName(horse.getName());
-					horseInterface.setEquibaselink(horse.getEquibaselink());
-					horseInterface.setOwner(horse.getOwner());
-					horseInterface.setTrainer(horse.getTrainer());
-					horseInterface.setJockey(horse.getJockey());
-
-					// Calculate age of the horse based on currently held thoroughbred age
-					// conventions; Birth date will always be year of birth on January 1
-					LocalDate now = LocalDate.now();
-					int currentYear = now.getYear();
-					LocalDate foalDate = LocalDate.of(horse.getFoalYear(), Month.JANUARY, 1);
-					LocalDate currentDate = LocalDate.of(currentYear, Month.JANUARY, 1);
-					int age = Period.between(foalDate, currentDate).getYears();
-					String ageString = String.valueOf(age);
-
-					horseInterface.setAge(ageString);
-
-					// Assign displayed horse gender based on age and actual gender
-					String horseGender = null;
-					if (horse.getGender().equals(Gender.f) && age < 4) {
-						horseGender = "Filly";
-					} else if (horse.getGender().equals(Gender.f)) {
-						horseGender = "Mare";
-					} else if (horse.getGender().equals(Gender.m) && age < 4) {
-						horseGender = "Colt";
-					} else if (horse.getGender().equals(Gender.m)) {
-						horseGender = "Horse";
-					}
-
-					horseInterface.setGenderName(horseGender);
-
-					horseInterfaceList.add(horseInterface);
-				}
+				HorseInterface horseInterface = getHorseDetails(horse.getId());
+				horseInterfaceList.add(horseInterface);
 			}
 
 			model.addAttribute("horses", horseInterfaceList);
@@ -143,7 +109,19 @@ public class HorseService {
 
 			model.addAttribute("horse", horse);
 
-			return "redirect:/horse/" + horse.getId();
+			return "redirect:/horses";
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@RequestMapping(value = "/horsedetails/{id}", method = RequestMethod.POST)
+	public String horseDetails(@RequestParam long id, Model model) {
+		try {
+			HorseInterface horseInterface = getHorseDetails(id);
+
+			model.addAttribute("horsedetails", horseInterface);
+			return "horsedetails";
 		} catch (Exception e) {
 			throw e;
 		}
@@ -155,6 +133,51 @@ public class HorseService {
 			horseRepository.deleteById(id);
 
 			return "redirect:/horses";
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	private HorseInterface getHorseDetails(long id) {
+		try {
+			HorseInterface horseInterface = new HorseInterface();
+			Horse horse = horseRepository.findById(id).get();
+
+			if (horse != null) {
+				horseInterface.setId(horse.getId());
+				horseInterface.setName(horse.getName());
+				horseInterface.setEquibaselink(horse.getEquibaselink());
+				horseInterface.setOwner(horse.getOwner());
+				horseInterface.setTrainer(horse.getTrainer());
+				horseInterface.setJockey(horse.getJockey());
+
+				// Calculate age of the horse based on currently held thoroughbred age
+				// conventions; Birth date will always be year of birth on January 1
+				LocalDate now = LocalDate.now();
+				int currentYear = now.getYear();
+				LocalDate foalDate = LocalDate.of(horse.getFoalYear(), Month.JANUARY, 1);
+				LocalDate currentDate = LocalDate.of(currentYear, Month.JANUARY, 1);
+				int age = Period.between(foalDate, currentDate).getYears();
+				String ageString = String.valueOf(age);
+
+				horseInterface.setAge(ageString);
+
+				// Assign displayed horse gender based on age and actual gender
+				String horseGender = null;
+				if (horse.getGender().equals(Gender.f) && age < 4) {
+					horseGender = "Filly";
+				} else if (horse.getGender().equals(Gender.f)) {
+					horseGender = "Mare";
+				} else if (horse.getGender().equals(Gender.m) && age < 4) {
+					horseGender = "Colt";
+				} else if (horse.getGender().equals(Gender.m)) {
+					horseGender = "Horse";
+				}
+
+				horseInterface.setGenderName(horseGender);
+			}
+
+			return horseInterface;
 		} catch (Exception e) {
 			throw e;
 		}

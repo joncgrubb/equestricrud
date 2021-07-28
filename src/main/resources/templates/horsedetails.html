@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Equestricrud - Horse Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex">
+            <h1 class="text-center">Equestricrud</h1>
+        </div>
+        <div class="page-header" id="banner">
+            <div class="row">
+
+                <h1>Horse Details</h1>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <div class="row">
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Equibase Link</th>
+                                <th>Owner</th>
+                                <th>Trainer</th>
+                                <th>Jockey</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <div class="row">
+                            <tr>
+                                <div class="col-md-3">
+                                    <td th:text="${horsedetails.name}"></td>
+                                </div>
+                                <div class="col-md-1">
+                                    <td th:text="${horsedetails.age}"></td>
+                                </div>
+                                <div class="col-md-1">
+                                    <td th:text="${horsedetails.genderName}"></td>
+                                </div>
+                                <div class="col-md-1">
+                                    <td><a th:href="${horsedetails.equibaselink}" th:text="Link" target="_blank" /></td>
+                                </div>
+                                <div class="col-md-2">
+                                    <td th:text="${horsedetails.owner}"></td>
+                                </div>
+                                <div class="col-md-2">
+                                    <td th:text="${horsedetails.trainer}"></td>
+                                </div>
+                                <div class="col-md-2">
+                                    <td th:text="${horsedetails.jockey}"></td>
+                                </div>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <a class="btn btn-default" href="/horses" role="button">Back</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
